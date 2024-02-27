@@ -1,18 +1,23 @@
-import swagger from "@elysiajs/swagger";
-import { Elysia, t } from "elysia";
+import { Elysia } from "elysia";
 
-const app = new Elysia({
-  cookie: {
-    secrets: "test",
-    sign: ["test"],
-  },
+
+class AClass {
+  run() {
+    return 1
+  }
+}
+
+
+const p = new Elysia().decorate('a', new AClass()).resolve(({a}) => {
+  const b = a.run()
+  return {b}
 })
-  .use(swagger())
-  .get("/", () => "hi", {
-    response: t.String({ description: "sample description" }),
-  })
+
+
+const app = new Elysia().use(p)
+  .get("/", ({b}) => `hi, ${b}`)
   .listen(3000);
 
 console.log(
-  `Swagger DOCs: http://${app.server?.hostname}:${app.server?.port}/swagger`
+  `http://${app.server?.hostname}:${app.server?.port}`
 );
