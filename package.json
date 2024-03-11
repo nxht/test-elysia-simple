@@ -2,12 +2,13 @@
   "name": "test-elysia-simple",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bun run --watch src/index.ts",
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
-    "elysia": "1.0.0-beta.14"
+    "elysia": "^1.0.0-rc"
   },
   "devDependencies": {
-    "bun-types": "latest"
+    "@types/bun": "^1.0.8"
   }
 }
