@@ -1,9 +1,19 @@
 import { Elysia } from 'elysia';
 
-const app = new Elysia()
-  .get('/', () => `hello world`)
-  .listen(3000);
+const plugin = new Elysia({ name: 'test' }).derive({ as: 'global' }, () => {
+  return {
+    test: 'test',
+  };
+});
 
-console.log(
-  `http://${app.server?.hostname}:${app.server?.port}`,
-);
+const app = new Elysia()
+  .use(plugin)
+  .onError(({ test }) => {
+    console.log(test);
+  })
+  .get('/', ({ test }) => {
+    throw new Error(test);
+  })
+  .listen(7003);
+
+console.log(`http://${app.server?.hostname}:${app.server?.port}`);
