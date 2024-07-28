@@ -1,15 +1,15 @@
 {
-  "name": "test-elysia-simple",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "bun run --watch src/index.ts",
-    "dev": "bun run --watch src/index.ts"
-  },
-  "dependencies": {
-    "elysia": "^1.1.3"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/bun": "^1.1.6"
-  }
+	"name": "test-elysia-simple",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "bun run --watch src/index.ts",
+		"dev": "bun run --watch src/index.ts"
+	},
+	"dependencies": {
+		"elysia": "^1.1.4"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.8.3",
+		"@types/bun": "^1.1.6"
+	}
 }
