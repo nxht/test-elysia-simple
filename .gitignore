@@ -14,6 +14,8 @@
 
 # production
 /build
+dist/
+trace/
 
 # misc
 .DS_Store
@@ -46,3 +48,5 @@ bun.lockb
 .env
 
 sample.jpg
+
+test*.ts
